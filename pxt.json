@@ -1,5 +1,5 @@
 {
-    "name": "Yostic v1 direction and buttons",
+    "name": "Joystick v2 direction and buttons",
     "description": "",
     "dependencies": {
         "core": "*",

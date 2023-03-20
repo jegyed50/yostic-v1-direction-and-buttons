@@ -1,5 +1,3 @@
-let buttonVal = 0
-let item = 0
 function button () {
     buttonVal = pins.analogReadPin(AnalogPin.P2)
     if (buttonVal < 256) {
@@ -18,8 +16,18 @@ function button () {
         item = 0
     }
 }
+let y = 0
+let x = 0
+let item = 0
+let buttonVal = 0
+serial.redirectToUSB()
 basic.forever(function () {
+    serial.writeString("Ciklusmag eleje")
     button()
+    x = pins.analogReadPin(AnalogPin.P0)
+    y = pins.analogReadPin(AnalogPin.P1)
+    serial.writeValue("P0", x)
+    serial.writeValue("P1", y)
     if (item) {
         basic.showNumber(item)
     } else if (pins.analogReadPin(AnalogPin.P0) < 400) {
